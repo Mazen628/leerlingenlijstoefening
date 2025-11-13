@@ -1,0 +1,32 @@
+let Students ={
+    "Yorre": [16,"M"],
+    "Mazen": [17,"M"],
+    "Ghassane": [18,"x"],
+    "Abdel": [17,"M"],
+    "Ali": [17,"M"],
+};
+
+// Maak een element aan in de HTML body
+
+const div = document.createElement("div");
+document.body.appendChild(div);
+
+// zet de content in het HTML element
+let student = Object.entries(Students);// omzetting naar array van arrays
+let sortedEntries = student.sort((a,b) => a[1][0] - b[1][0]);// sorteren op leeftijd
+for ( let [ key, value] of student){
+    let paragraph = document.createElement("p");// maak een paragraaf element aan
+    let name = document.createElement("spam");// maak een span element aan
+    name.innerHTML = key;// zet de naam in de span
+    name.style.backgroundColor = "yellow";// maak de achtergrond geel
+    paragraph.appendChild(name);// voeg de naam toe aan de paragraaf
+    let paragraph2 = document.createElement("p");// maak een paragraaf element aan
+    paragraph2.innerHTML = " is " + value[0] + " Jaar oud.";// zet de naam en leeftijd in de paragraaf
+     
+    paragraph.style.fontSize = (value[0]/10) +"rem"; // pas de lettergrootte aan op leeftijd
+    paragraph.style.color = "rgb(" + (value[0]*5) +","+ (value[0]*10) + "," + (value[0]*50) + ")"; // pas de kleur aan op leeftijd
+
+   div.appendChild(paragraph);// voeg de paragraaf toe aan de div
+    div.appendChild(paragraph2);// voeg de paragraaf toe aan de div
+   
+};
